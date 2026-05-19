@@ -1,0 +1,356 @@
+:root {
+  color-scheme: dark;
+  --bg: #120214;
+  --bg-soft: rgba(255, 255, 255, 0.08);
+  --panel: rgba(255, 255, 255, 0.12);
+  --panel-strong: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.26);
+  --text: #f7f2ff;
+  --muted: #f3d0f9;
+  --pink: #ff8fe2;
+  --neon: #ff5bdc;
+  --purple: #c58bff;
+  --shadow: 0 24px 60px rgba(157, 18, 106, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, rgba(255, 182, 193, 0.18), transparent 23%),
+    radial-gradient(circle at right, rgba(238, 130, 238, 0.13), transparent 25%),
+    linear-gradient(160deg, #1f0626 0%, #2f0f3d 45%, #120214 100%);
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 24px;
+  max-width: 1300px;
+  margin: 32px auto;
+  padding: 0 20px 40px;
+}
+
+.glass-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  border-radius: 32px;
+}
+
+.soft-shadow {
+  box-shadow: var(--shadow);
+}
+
+.player-panel,
+.playlist-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.tag,
+.mini-tag {
+  margin: 0;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffc5ff;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 1.55rem;
+}
+
+.top-icons,
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.glowing-btn {
+  background: linear-gradient(135deg, rgba(255,133,201,0.8), rgba(255, 109, 241, 0.55));
+  box-shadow: 0 0 20px rgba(255, 89, 213, 0.45);
+}
+
+.now-playing {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.artwork {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), transparent 40%),
+    linear-gradient(145deg, rgba(255, 150, 218, 0.14), rgba(136, 104, 255, 0.22));
+}
+
+.album-badge {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.heart-icon {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  font-size: 1.5rem;
+  color: #ff8fe2;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.track-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+}
+
+.track-info p {
+  margin: 0;
+  color: #e0d0ff;
+  opacity: 0.85;
+  font-size: 0.98rem;
+}
+
+.progress-group {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.11);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff9ad0, #e77bff);
+}
+
+.control-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+  font-size: 1.4rem;
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+
+.play-btn {
+  width: 96px;
+  height: 96px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 115, 226, 0.95), rgba(255, 216, 239, 0.9));
+  color: #2a0b2b;
+  box-shadow: 0 18px 30px rgba(255, 92, 194, 0.28);
+}
+
+.stats-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 24px;
+}
+
+.stats-card div {
+  background: rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 16px;
+}
+
+.stats-card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.stats-card strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.secondary-btn {
+  padding: 14px 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.playlist-list {
+  display: grid;
+  gap: 16px;
+}
+
+.track-item {
+  display: grid;
+  grid-template-columns: 48px 1fr 54px;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 18px;
+}
+
+.track-item.active {
+  border: 1px solid rgba(255, 107, 223, 0.5);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.track-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffb4d4;
+  font-weight: 700;
+}
+
+.track-item h3 {
+  font-size: 1rem;
+}
+
+.track-item p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.bottom-card {
+  padding: 24px;
+}
+
+.mood-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.bottom-card p {
+  margin: 0;
+  color: #e8e0ff;
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .playlist-panel {
+    order: -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .player-panel,
+  .playlist-panel {
+    gap: 18px;
+  }
+  .now-playing {
+    grid-template-columns: 1fr;
+  }
+  .artwork {
+    width: 100%;
+    padding-top: 100%;
+  }
+  .controls {
+    justify-content: center;
+  }
+  .top-icons {
+    justify-content: flex-end;
+  }
+  .stats-card {
+    grid-template-columns: 1fr;
+  }
+  .track-item {
+    grid-template-columns: 40px 1fr 40px;
+  }
+  .icon-btn,
+  .track-number {
+    width: 48px;
+    height: 48px;
+  }
+}
